@@ -222,7 +222,7 @@ Por favor leia [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b2467940295
 
 ## Versionamento
 
-Nós usamos [SemVer](http://semver.org/) para o versionamento. Para ver as versões disponíveis, visite as [tags deste repositorio](https://github.com/your/project/tags).
+Nós usamos [SemVer](http://semver.org/) para o versionamento. Para ver as versões disponíveis, visite as [tags deste repositorio](https://github.com/DarlanCaruso/spotify-wrapper/tags).
 
 ## Autores
 
