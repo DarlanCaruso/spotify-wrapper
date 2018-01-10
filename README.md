@@ -1,6 +1,6 @@
 # Spotify Wrapper
 
-A uma aplicação que utiliza a [Spotify Web Api](https://developer.spotify.com/web-api/)
+A uma aplicação que utiliza a [Spotify Web API](https://developer.spotify.com/web-api/)
 
 ## Suporte aos Browsers
 
@@ -17,7 +17,7 @@ Essa biblioteca depende do [fetch](https://fetch.spec.whatwg.org/) para fazer re
 ## Instalação
 
 ```sh
-$ npm install spotify-wrapper --save
+$ npm install js-spotify-wrapper --save
 ```
 
 ## Como utilizar
@@ -26,10 +26,10 @@ $ npm install spotify-wrapper --save
 
 ```js
 // para importar um método especifico
-import { method } from 'spotify-wrapper';
+import { method } from 'js-spotify-wrapper';
 
 // para importar tudo
-import * as spotifyWrapper from 'spotify-wrapper';
+import * as spotifyWrapper from 'js-spotify-wrapper';
 ```
 
 ### CommonJS
