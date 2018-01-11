@@ -1,5 +1,7 @@
 # Spotify Wrapper
 
+[![Build Status](https://travis-ci.org/DarlanCaruso/spotify-wrapper.svg?branch=master)](https://travis-ci.org/DarlanCaruso/spotify-wrapper)
+
 A uma aplicação que utiliza a [Spotify Web API](https://developer.spotify.com/web-api/)
 
 ## Suporte aos Browsers
