@@ -84,6 +84,14 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var API_URL = exports.API_URL = 'https://api.spotify.com/v1';
+var API_TOKEN = exports.API_TOKEN = 'BQAcNynlCx-bOixhXqHlfmW_hKgKV3MC5ov99zX0De5UTYMhsEPj479edbS7VHfB71a2sMLeIpVgUiqSHsWWqpps8D7n3HoDZe1P0c_tQgDu1ygBo3OpANqm_Lm44Vq9KhDLEC0Bw2IIQX91';
+var HEADERS = exports.HEADERS = {
+  method: 'GET',
+  headers: {
+    Accept: 'application/json',
+    Authorization: 'Bearer ' + API_TOKEN
+  }
+};
 
 /***/ }),
 /* 1 */
@@ -140,13 +148,7 @@ var _utils = __webpack_require__(1);
 var searchAll = exports.searchAll = function searchAll(query, type) {
   var queryStr = query.replace(/ /g, '+');
   var typeConcat = type.toString();
-  return fetch(_config.API_URL + '/search?q=' + queryStr + '&type=' + typeConcat, {
-    method: 'GET',
-    headers: {
-      Accept: 'application/json',
-      Authorization: 'Bearer ' + 'BQAwpBOhcpLarwnioHhMvlvXS0vm4KpYexccjobXtF_ew_oUoybQMvX1kRwnO2lsacApiR8eLPZo4eB1Baoj-iwHTk7UvkCZJRzOudGcE0ALHBayioqi47v_ubSnLA4n4zg7oDP2_WKkjwoE'
-    }
-  }).then(_utils.toJSON);
+  return fetch(_config.API_URL + '/search?q=' + queryStr + '&type=' + typeConcat, _config.HEADERS).then(_utils.toJSON);
 };
 var searchAlbums = exports.searchAlbums = function searchAlbums(query) {
   return searchAll(query, 'album');
@@ -178,13 +180,13 @@ var _config = __webpack_require__(0);
 var _utils = __webpack_require__(1);
 
 var getAlbum = exports.getAlbum = function getAlbum(id) {
-  return fetch(_config.API_URL + '/albums/' + id).then(_utils.toJSON);
+  return fetch(_config.API_URL + '/albums/' + id, _config.HEADERS).then(_utils.toJSON);
 };
 var getAlbums = exports.getAlbums = function getAlbums(ids) {
-  return fetch(_config.API_URL + '/albums/' + ids).then(_utils.toJSON);
+  return fetch(_config.API_URL + '/albums/' + ids, _config.HEADERS).then(_utils.toJSON);
 };
 var getAlbumTracks = exports.getAlbumTracks = function getAlbumTracks(id) {
-  return fetch(_config.API_URL + '/albums/' + id + '/tracks').then(_utils.toJSON);
+  return fetch(_config.API_URL + '/albums/' + id + '/tracks', _config.HEADERS).then(_utils.toJSON);
 };
 
 /***/ })
