@@ -1,8 +1,6 @@
 # Spotify Wrapper
 
-[![Build Status](https://travis-ci.org/DarlanCaruso/spotify-wrapper.svg?branch=master)](https://travis-ci.org/DarlanCaruso/spotify-wrapper)
-
-[![Coverage Status](https://coveralls.io/repos/github/DarlanCaruso/spotify-wrapper/badge.svg?branch=master)](https://coveralls.io/github/DarlanCaruso/spotify-wrapper?branch=master)
+[![Build Status](https://travis-ci.org/DarlanCaruso/spotify-wrapper.svg?branch=master)](https://travis-ci.org/DarlanCaruso/spotify-wrapper) [![Coverage Status](https://coveralls.io/repos/github/DarlanCaruso/spotify-wrapper/badge.svg?branch=master)](https://coveralls.io/github/DarlanCaruso/spotify-wrapper?branch=master)
 
 A uma aplicação que utiliza a [Spotify Web API](https://developer.spotify.com/web-api/)
 
