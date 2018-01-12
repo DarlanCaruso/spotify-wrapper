@@ -73,7 +73,7 @@ const albums = spotify.search.metodoEscolhido();
 
 ### searchAlbums(query)
 
-> Pesquise por Albums. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) com o tipo definido como *album*.
+> Pesquise por albums. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) com o tipo definido como *album*.
 
 **Argumentos**
 
@@ -92,7 +92,7 @@ searchAlbums('Veil of Maya')
 
 ### searchArtists(query)
 
-> Pesquise por Artistas. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) com o tipo definido como *artist*.
+> Pesquise por artistas. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) com o tipo definido como *artist*.
 
 **Argumentos**
 
@@ -111,7 +111,7 @@ searchArtists('Veil of Maya')
 
 ### searchTracks(query)
 
-> Pesquise por Faixas. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) com o tipo definido como *track*.
+> Pesquise por faixas. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) com o tipo definido como *track*.
 
 **Argumentos**
 
@@ -130,7 +130,7 @@ searchTracks('Veil of Maya')
 
 ### searchPlaylists(query)
 
-> Pesquise por Playlists. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) com o tipo definido como *playlist*.
+> Pesquise por playlists. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) com o tipo definido como *playlist*.
 
 **Argumentos**
 
@@ -160,13 +160,13 @@ const albums = spotify.album.metodoEscolhido();
 
 ### getAlbum(id)
 
-> Retorne um album especifico informando o id. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-album/).
+> Retorne um album específico informando o id. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-album/).
 
 **Argumentos**
 
 | Argumento | Tipo    | Opções            |
 |-----------|---------|-------------------|
-|`id`       |*string* | 'Id especifico'   |
+|`id`       |*string* | 'Id específico'   |
 
 **Exemplo**
 
@@ -179,7 +179,7 @@ getAlbum('4aawyAB9vmqN3uQ7FjRGTy')
 
 ### getAlbums(ids)
 
-> Retorne vários albums especificos informando seus id's Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-several-albums/).
+> Retorne vários albums específicos informando seus id's Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-several-albums/).
 
 **Argumentos**
 
@@ -198,13 +198,13 @@ getAlbum(['4aawyAB9vmqN3uQ7FjRGTy', '1A2GTWGtFfWp7KSQTwWOyo'])
 
 ### getAlbumTracks(id)
 
-> Retorne a faixas de um album especifico informando o id. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-album-tracks/).
+> Retorne a faixas de um album específico informando o id. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-album-tracks/).
 
 **Argumentos**
 
 | Argumento | Tipo    | Opções              |
 |-----------|---------|---------------------|
-|`id`       |*string* | 'Id especifico'     |
+|`id`       |*string* | 'Id específico'     |
 
 **Exemplo**
 
@@ -228,13 +228,13 @@ const artists = spotify.artist.metodoEscolhido();
 
 ### getArtist(id)
 
-> Retorne um artista especifico informando o id. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-artist/).
+> Retorne um artista específico informando o id. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-artist/).
 
 **Argumentos**
 
 | Argumento | Tipo    | Opções            |
 |-----------|---------|-------------------|
-|`id`       |*string* | 'Id especifico'   |
+|`id`       |*string* | 'Id específico'   |
 
 **Exemplo**
 
@@ -247,7 +247,7 @@ getArtist('0TnOYISbd1XYRBk9myaseg')
 
 ### getArtists(ids)
 
-> Retorne vários artistas especificos informando seus id's. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-several-artists/).
+> Retorne vários artistas específicos informando seus id's. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-several-artists/).
 
 **Argumentos**
 
@@ -272,7 +272,7 @@ getArtists(['2CIMQHirSU0MQqyYHq0eOx','57dN52uHvrHOxijzpIgu3E','1vCWHaC5f2uS3yhpw
 
 | Argumento | Tipo    | Opções                                                     |
 |-----------|---------|------------------------------------------------------------|
-|`id`       |*string* | 'Id especifico'                                            |
+|`id`       |*string* | 'Id específico'                                            |
 |`tipo`     |*string* | 'Tipo de dado (single, album, appears_on, compilation)'    |
 
 **Exemplo**
@@ -292,7 +292,7 @@ getArtistAlbums('0TnOYISbd1XYRBk9myaseg', 'single')
 
 | Argumento | Tipo    | Opções            |
 |-----------|---------|-------------------|
-|`id`       |*string* | 'Id especifico'   |
+|`id`       |*string* | 'Id específico'   |
 
 **Exemplo**
 
@@ -311,7 +311,7 @@ getArtistTopTracks('0TnOYISbd1XYRBk9myaseg')
 
 | Argumento | Tipo    | Opções            |
 |-----------|---------|-------------------|
-|`id`       |*string* | 'Id especifico'   |
+|`id`       |*string* | 'Id específico'   |
 
 **Exemplo**
 
