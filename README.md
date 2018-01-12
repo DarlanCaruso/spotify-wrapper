@@ -332,7 +332,7 @@ N√≥s usamos [SemVer](http://semver.org/) para o versionamento. Para ver as vers√
 
 ## Autores
 
-| ![Darlan Caruso](https://avatars3.githubusercontent.com/u/5831230?s=460&v=4)|
+| ![Darlan Caruso](https://avatars3.githubusercontent.com/u/5831230?s=300&v=4)|
 |:---------------------:|
 |  [Darlan Caruso](https://github.com/darlancaruso/)   |
 
