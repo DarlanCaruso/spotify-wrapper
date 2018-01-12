@@ -1,21 +1,21 @@
 {
   "name": "js-spotify-wrapper",
-  "version": "1.0.3",
+  "version": "1.1.4",
   "description": "Uma aplicação para trabalhar com Spotify Web API.",
   "main": "lib/index.js",
   "scripts": {
+    "babel-transpiler": "./node_modules/.bin/babel --out-dir lib src",
+    "build-es5": "npm run clear && npm run babel-transpiler",
+    "build-umd": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.js",
+    "build-umd:min": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.min.js -p",
+    "build": "npm run build-es5 && npm run build-umd && npm run build-umd:min",
     "clear": "rimraf lib",
-    "es5": "./node_modules/.bin/babel --out-dir lib src",
-    "build:es5": "npm run clear && npm run es5",
-    "build:umd": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.js",
-    "build:umd:min": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.min.js -p",
-    "build": "npm run build:es5 && npm run build:umd && npm run build:umd:min",
-    "prepush": "npm run lint && npm run nyc",
+    "coveralls": "npm run test:coverage && nyc report --reporter=text-lcov | coveralls",
+    "prepush": "npm run lint && npm run test:coverage",
     "lint": "./node_modules/.bin/eslint src/*.js",
     "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
     "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
-    "nyc": "nyc npm test",
-    "coveralls": "npm run nyc && nyc report --reporter=text-lcov | coveralls"
+    "test:coverage": "nyc npm test"
   },
   "files": [
     "dist",

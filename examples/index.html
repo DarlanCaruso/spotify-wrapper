@@ -13,7 +13,10 @@
 </body>
 <script src="../dist/spotify-wrapper.umd.js"></script>
 <script>
-  const albums = spotifyWrapper.searchAlbums('Evanescence');
+  const spotify = new SpotifyWrapper({
+    token: 'BQALxhAC4HFcndPQt_0F-VWfqkyTv0PgPR6W70MF2wCU8RaeuxSd1ZSd_JIv4FtuQveR0jXMEpCdiPgNkGZtyttcrQ3WmUebIJZHaevSIkgYTPCfymnohPMBf8xpkEaYeDPckXifkzceblb3',
+  });
+  const albums = spotify.search.searchAlbums('Evanescence');
   //console.log(albums);
   const albumEl = document.getElementById('albums');
 
@@ -27,4 +30,5 @@
     console.log(markup);
   });
 </script>
+
 </html>

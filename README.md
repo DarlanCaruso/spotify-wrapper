@@ -21,23 +21,19 @@ Essa biblioteca depende do [fetch](https://fetch.spec.whatwg.org/) para fazer re
 ```sh
 $ npm install js-spotify-wrapper --save
 ```
-
 ## Como utilizar
 
 ### ES6
 
 ```js
-// para importar um método especifico
-import { method } from 'js-spotify-wrapper';
-
-// para importar tudo
-import * as spotifyWrapper from 'js-spotify-wrapper';
+// para importar a biblioteca
+import SpotifyWrapper from 'js-spotify-wrapper';
 ```
 
 ### CommonJS
 
 ```js
-var spotifyWrapper = require('spotify-wrapper');
+var spotifyWrapper = require('js-spotify-wrapper');
 ```
 
 ### UMD in Browser
@@ -50,46 +46,40 @@ var spotifyWrapper = require('spotify-wrapper');
 <script src="spotify-wrapper.umd.min.js"></script>
 ```
 
-Após isto, a API ficará disponível pelo nome de SpotifyWrapper, como mostra o exemplo:
+Após isto, a API ficará disponível pelo nome de SpotifyWrapper.
+Para utilizar a API é necessário um token que pode ser gerado [aqui](https://developer.spotify.com/web-api/console/get-search-item/). O token expira a cada duas horas. Como mostra o exemplo:
 
 ```js
-const albums = spotifyWrapper.searchAlbums('Artista escolhido');
+const spotify = new SpotifyWrapper({
+  token: 'Seu token gerado aqui'
+});
+const albums = spotify.search.searchAlbums('Artista escolhido');
 ```
 
 ## Metódos
 
 > Confira os métodos que a biblioteca disponibiliza
 
-### searchAll(query, tipo)
+## Search
 
-> Procure por infromações de artistas, albums, faixas e playlists. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/).
-
-**Argumentos**
-
-| Argumento | Tipo              | Opções                                  |
-|-----------|-------------------|-----------------------------------------|
-|`query`    |*string*           | 'Pesquise qualquer coisa'               |
-|`tipo`     |*Array de Strings* | ['artist', 'album', 'track', 'playlist']|
-
-**Exemplo**
+Os metódos *search* ficam disponíveis pelo atributo 'search'.
 
 ```js
-search('Veil of Maya', ['artist', 'album'])
-  .then(data => {
-    // faça o que quiser com o resultado
-  })
+const spotify = new SpotifyWrapper({
+  token: 'Seu token gerado aqui'
+});
+const albums = spotify.search.metodoEscolhido();
 ```
 
 ### searchAlbums(query)
 
-> Procure informações sobre Albums. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) com o tipo definido como *album*.
+> Pesquise por Albums. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) com o tipo definido como *album*.
 
 **Argumentos**
 
 | Argumento | Tipo    | Opções                    |
 |-----------|---------|---------------------------|
 |`query`    |*string* | 'Pesquise qualquer coisa' |
-
 
 **Exemplo**
 
@@ -102,14 +92,13 @@ searchAlbums('Veil of Maya')
 
 ### searchArtists(query)
 
-> Procure informações sobre Artistas. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) com o tipo definido como *artist*.
+> Pesquise por Artistas. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) com o tipo definido como *artist*.
 
 **Argumentos**
 
 | Argumento | Tipo    | Opções                    |
 |-----------|---------|---------------------------|
 |`query`    |*string* | 'Pesquise qualquer coisa' |
-
 
 **Exemplo**
 
@@ -122,14 +111,13 @@ searchArtists('Veil of Maya')
 
 ### searchTracks(query)
 
-> Procure informações sobre Faixas. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) com o tipo definido como *track*.
+> Pesquise por Faixas. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) com o tipo definido como *track*.
 
 **Argumentos**
 
 | Argumento | Tipo    | Opções                    |
 |-----------|---------|---------------------------|
 |`query`    |*string* | 'Pesquise qualquer coisa' |
-
 
 **Exemplo**
 
@@ -142,14 +130,13 @@ searchTracks('Veil of Maya')
 
 ### searchPlaylists(query)
 
-> Procure informações sobre Playlists. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) com o tipo definido como *playlist*.
+> Pesquise por Playlists. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) com o tipo definido como *playlist*.
 
 **Argumentos**
 
 | Argumento | Tipo    | Opções                    |
 |-----------|---------|---------------------------|
 |`query`    |*string* | 'Pesquise qualquer coisa' |
-
 
 **Exemplo**
 
@@ -160,16 +147,26 @@ searchPlaylists('Veil of Maya')
   })
 ```
 
+## Albums
+
+Os metódos *album* ficam disponíveis pelo atributo 'album'.
+
+```js
+const spotify = new SpotifyWrapper({
+  token: 'Seu token gerado aqui'
+});
+const albums = spotify.album.metodoEscolhido();
+```
+
 ### getAlbum(id)
 
-> Procure informações sobre um album especifico com seu determinado id. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-album/).
+> Retorne um album especifico informando o id. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-album/).
 
 **Argumentos**
 
 | Argumento | Tipo    | Opções            |
 |-----------|---------|-------------------|
 |`id`       |*string* | 'Id especifico'   |
-
 
 **Exemplo**
 
@@ -182,7 +179,7 @@ getAlbum('4aawyAB9vmqN3uQ7FjRGTy')
 
 ### getAlbums(ids)
 
-> Procure informações sobre alguns albuns informando seus determinados id's. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-several-albums/).
+> Retorne vários albums especificos informando seus id's Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-several-albums/).
 
 **Argumentos**
 
@@ -190,7 +187,7 @@ getAlbum('4aawyAB9vmqN3uQ7FjRGTy')
 |-----------|-------------------|-------------------|
 |`ids`      |*Array de Strings* | ['id1', 'id2']    |
 
-**Examplo**
+**Exemplo**
 
 ```js
 getAlbum(['4aawyAB9vmqN3uQ7FjRGTy', '1A2GTWGtFfWp7KSQTwWOyo'])
@@ -201,7 +198,7 @@ getAlbum(['4aawyAB9vmqN3uQ7FjRGTy', '1A2GTWGtFfWp7KSQTwWOyo'])
 
 ### getAlbumTracks(id)
 
-> Procure todas as faixas de um album informando seu id. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-album-tracks/).
+> Retorne a faixas de um album especifico informando o id. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-album-tracks/).
 
 **Argumentos**
 
@@ -218,9 +215,116 @@ getAlbum('4aawyAB9vmqN3uQ7FjRGTy')
   })
 ```
 
+## Artists
+
+Os metódos de *artist* ficam disponíveis pelo atributo 'artist'.
+
+```js
+const spotify = new SpotifyWrapper({
+  token: 'Seu token gerado aqui'
+});
+const artists = spotify.artist.metodoEscolhido();
+```
+
+### getArtist(id)
+
+> Retorne um artista especifico informando o id. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-artist/).
+
+**Argumentos**
+
+| Argumento | Tipo    | Opções            |
+|-----------|---------|-------------------|
+|`id`       |*string* | 'Id especifico'   |
+
+**Exemplo**
+
+```js
+getArtist('0TnOYISbd1XYRBk9myaseg')
+  .then(data => {
+    // faça o que quiser com resultado
+  })
+```
+
+### getArtists(ids)
+
+> Retorne vários artistas especificos informando seus id's. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-several-artists/).
+
+**Argumentos**
+
+| Argumento | Tipo              | Opções            |
+|-----------|-------------------|-------------------|
+|`ids`      |*Array de Strings* | ['id1', 'id2']    |
+
+**Exemplo**
+
+```js
+getArtists(['2CIMQHirSU0MQqyYHq0eOx','57dN52uHvrHOxijzpIgu3E','1vCWHaC5f2uS3yhpwWbIA6'])
+  .then(data => {
+    // faça o que quiser com o resultado
+  })
+```
+
+### getArtistAlbums(id, tipo)
+
+> Retorne todos os albums de um determinado artista informando o id. É possível escolher o tipo de album que deseja receber. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-artist-albums/).
+
+**Argumentos**
+
+| Argumento | Tipo    | Opções                                                     |
+|-----------|---------|------------------------------------------------------------|
+|`id`       |*string* | 'Id especifico'                                            |
+|`tipo`     |*string* | 'Tipo de dado (single, album, appears_on, compilation)'    |
+
+**Exemplo**
+
+```js
+getArtistAlbums('0TnOYISbd1XYRBk9myaseg', 'single')
+  .then(data => {
+    // faça o que quiser com resultado
+  })
+```
+
+### getArtistTopTracks(id)
+
+> Retorne o top 10 de um determinado artista informando o id. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-artist-top-tracks/).
+
+**Argumentos**
+
+| Argumento | Tipo    | Opções            |
+|-----------|---------|-------------------|
+|`id`       |*string* | 'Id especifico'   |
+
+**Exemplo**
+
+```js
+getArtistTopTracks('0TnOYISbd1XYRBk9myaseg')
+  .then(data => {
+    // faça o que quiser com resultado
+  })
+```
+
+### getArtistRelated(id)
+
+> Retorne os artistas relacionados. Teste em: [Spotify Web Console](https://developer.spotify.com/web-api/console/get-artist-related-artists/).
+
+**Argumentos**
+
+| Argumento | Tipo    | Opções            |
+|-----------|---------|-------------------|
+|`id`       |*string* | 'Id especifico'   |
+
+**Exemplo**
+
+```js
+getArtistRelated('0TnOYISbd1XYRBk9myaseg')
+  .then(data => {
+    // faça o que quiser com resultado
+  })
+```
+
 ## Contribuições
 
-Por favor leia [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) para detalhes sobre nosso código de conduta, e o processo para enviar pedidos de commit para nós.
+Por favor leia [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) para detalhes sobre nosso código de conduta.
 
 ## Versionamento
 
