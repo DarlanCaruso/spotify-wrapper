@@ -2,8 +2,8 @@ import search from './search';
 import album from './album';
 import artist from './artist';
 
-import { API_URL } from '../src/config';
-import { toJSON } from '../src/utils';
+import { API_URL } from './config';
+import { toJSON } from './utils';
 
 export default class SpotifyWrapper {
   constructor(options) {
