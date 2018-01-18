@@ -101,9 +101,13 @@ var _album = __webpack_require__(3);
 
 var _album2 = _interopRequireDefault(_album);
 
-var _config = __webpack_require__(4);
+var _artist = __webpack_require__(4);
 
-var _utils = __webpack_require__(5);
+var _artist2 = _interopRequireDefault(_artist);
+
+var _config = __webpack_require__(5);
+
+var _utils = __webpack_require__(6);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -118,6 +122,7 @@ var SpotifyWrapper = function () {
 
     this.album = _album2.default.bind(this)();
     this.search = _search2.default.bind(this)();
+    this.artist = _artist2.default.bind(this)();
   }
 
   _createClass(SpotifyWrapper, [{
@@ -203,11 +208,45 @@ function album() {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = artist;
+function artist() {
+  var _this = this;
+
+  return {
+    getArtist: function getArtist(id) {
+      return _this.request(_this.apiURL + "/artists/" + id);
+    },
+    getArtists: function getArtists(ids) {
+      return _this.request(_this.apiURL + "/artists/?ids=" + ids);
+    },
+    getArtistAlbums: function getArtistAlbums(id, tipo) {
+      if (!tipo) return _this.request(_this.apiURL + "/artists/" + id + "/albums");
+      return _this.request(_this.apiURL + "/artists/" + id + "/albums?album_type=" + tipo);
+    },
+    getArtistTopTracks: function getArtistTopTracks(id) {
+      return _this.request(_this.apiURL + "/artists/" + id + "/top-tracks");
+    },
+    getArtistRelated: function getArtistRelated(id) {
+      return _this.request(_this.apiURL + "/artists/" + id + "/related-artists");
+    }
+  };
+}
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var API_URL = exports.API_URL = 'https://api.spotify.com/v1';
 exports.default = API_URL;
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
